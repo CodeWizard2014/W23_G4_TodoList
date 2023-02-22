@@ -2,6 +2,8 @@ package com.example.w23_g4_todolist;
 
 import android.os.Bundle;
 
+import com.example.w23_g4_todolist.service.DataManager;
+import com.example.w23_g4_todolist.service.GlobalVar;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // Init
+        DataManager dm = new DataManager();
+        GlobalVar.setDataMgr(dm);
     }
 
     @Override
