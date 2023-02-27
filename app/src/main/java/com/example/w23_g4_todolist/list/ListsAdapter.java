@@ -1,18 +1,15 @@
 package com.example.w23_g4_todolist.list;
 
-import android.graphics.drawable.Drawable;
-import android.view.Gravity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-
 import com.example.w23_g4_todolist.R;
+import com.example.w23_g4_todolist.TasksActivity;
 import com.example.w23_g4_todolist.vo.TListVO;
-import com.example.w23_g4_todolist.vo.TaskVO;
 
 import java.util.List;
 
@@ -47,12 +44,19 @@ public class ListsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        if (view == null){
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(android.R.layout.simple_list_item_1, viewGroup, false);
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_listitem, viewGroup, false);
         }
 
-        
+        TextView listItem = view.findViewById(R.id.tvListItem);
+        listItem.setText(lists.get(i).getName());
+
+        listItem.setOnClickListener(v->{
+            Intent intent = new Intent(viewGroup.getContext(), TasksActivity.class);
+            intent.putExtra("listID", lists.get(i).getId());
+            viewGroup.getContext().startActivity(intent);
+        });
 
         return view;
     }

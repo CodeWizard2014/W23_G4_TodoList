@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +14,9 @@ import com.example.w23_g4_todolist.list.ListsAdapter;
 import com.example.w23_g4_todolist.service.FakeData;
 import com.example.w23_g4_todolist.service.GlobalVar;
 import com.example.w23_g4_todolist.vo.TListVO;
+import com.example.w23_g4_todolist.vo.TaskVO;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         GlobalVar.setDataMgr(new FakeData());
 
         ListView listMyLists = findViewById(R.id.listMyLists);
-
         ListsAdapter adapter = new ListsAdapter();
         adapter.setLists(GlobalVar.getDataMgr().getTLists());
         listMyLists.setAdapter(adapter);
