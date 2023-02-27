@@ -1,6 +1,8 @@
 package com.example.w23_g4_todolist.list;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,7 @@ public class ListsAdapter extends BaseAdapter {
         return i;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
@@ -51,7 +54,7 @@ public class ListsAdapter extends BaseAdapter {
 
         TListVO listItem = lists.get(i);
         TextView tvListItem = view.findViewById(R.id.tvListItem);
-        tvListItem.setText(listItem.getName());
+        tvListItem.setText("    " + listItem.getName());
 
         tvListItem.setOnClickListener(v -> {
             Intent intent = new Intent(viewGroup.getContext(), TasksActivity.class);
@@ -59,6 +62,7 @@ public class ListsAdapter extends BaseAdapter {
             viewGroup.getContext().startActivity(intent);
         });
 
+        tvListItem.setGravity(Gravity.CENTER_VERTICAL);
         return view;
     }
 }

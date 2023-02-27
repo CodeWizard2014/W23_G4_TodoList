@@ -32,13 +32,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.setLists(GlobalVar.getDataMgr().getTLists());
         listMyLists.setAdapter(adapter);
 
-        Button btnShowTasks = findViewById(R.id.btnTasks);
-        btnShowTasks.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, TasksActivity.class);
-            intent.putExtra("listID", "1");
-            startActivity(intent);
-        });
-
         Button btnAddList = findViewById(R.id.btnAddList);
         btnAddList.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AddListActivity.class);
