@@ -17,15 +17,22 @@ import java.util.List;
 
 public class TaskListAdapter extends BaseAdapter{
 
-    private List<String> tasks;
+    private List<TaskVO> tasks;
 
-    public TaskListAdapter(List<String> tasks) {
+    public TaskListAdapter() {
+    }
+
+    public List<TaskVO> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<TaskVO> tasks) {
         this.tasks = tasks;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return tasks.size();
     }
 
     @Override
@@ -35,7 +42,7 @@ public class TaskListAdapter extends BaseAdapter{
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -47,7 +54,7 @@ public class TaskListAdapter extends BaseAdapter{
         TextView tvTitle = view.findViewById(R.id.tvTitle);
         CheckBox cbStatus = view.findViewById(R.id.cbStatus);
 
-        TaskVO task = GlobalVar.getDataMgr().getTask(tasks.get(i));
+        TaskVO task = tasks.get(i);
         tvTitle.setText(task.getTitle());
         cbStatus.setChecked(task.getDone());
 

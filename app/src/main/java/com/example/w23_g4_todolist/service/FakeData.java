@@ -22,10 +22,11 @@ public class FakeData implements IDataManager {
         lists.put("1", new TListVO("1", "school"));
         lists.put("2", new TListVO("2", "work"));
 
-        tasks.put("1", new TaskVO("1", "1", "test title1", true, new Date(), new String[]{"exam"}));
-        tasks.put("2", new TaskVO("2", "1", "test title2", false, new Date(), new String[]{"asg"}));
-        tasks.put("3", new TaskVO("3", "2", "test title3", true, new Date(), new String[]{"meeting"}));
-        tasks.put("4", new TaskVO("4", "2", "test title4", false, new Date(), new String[]{"report"}));
+        for(int i=0; i<=40; i++){
+            String listID = i % 2 == 0 ? "1" : "2";
+            Boolean done = Math.random() > 0.5 ? true : false;
+            tasks.put(String.valueOf(i), new TaskVO(String.valueOf(i), listID, "title " + i, done, new Date(), new String[]{"exam"}));
+        }
     }
 
     @Override
@@ -33,7 +34,7 @@ public class FakeData implements IDataManager {
         List<TaskVO> ret = new ArrayList<TaskVO>();
 
         for(TaskVO task : tasks.values()){
-            if(task.getId().equals(listID))
+            if(task.getListID().equals(listID))
                 ret.add(task);
         }
 
