@@ -17,9 +17,9 @@ import java.util.List;
 
 public class TaskListAdapter extends BaseAdapter{
 
-    private List<Integer> tasks;
+    private List<String> tasks;
 
-    public TaskListAdapter(List<Integer> tasks) {
+    public TaskListAdapter(List<String> tasks) {
         this.tasks = tasks;
     }
 

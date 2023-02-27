@@ -17,14 +17,16 @@ public class TaskModify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_modify);
 
-        int taskID = (int)savedInstanceState.get("taskID");
+        String taskID = (String)savedInstanceState.get("taskID");
         task = GlobalVar.getDataMgr().getTask(taskID);
 
+        // init ui
 
     }
 
     private void saveTask(){
-        TaskVO task = null;
+        // update taskvo from ui
+
         GlobalVar.getDataMgr().saveTask(task);
     }
 }
