@@ -30,17 +30,17 @@ public class ListsAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return lists.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int i) {
         return null;
     }
 
     @Override
-    public long getItemId(int position) {
-        return 0;
+    public long getItemId(int i) {
+        return i;
     }
 
     @Override
@@ -49,12 +49,13 @@ public class ListsAdapter extends BaseAdapter {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_listitem, viewGroup, false);
         }
 
-        TextView listItem = view.findViewById(R.id.tvListItem);
-        listItem.setText(lists.get(i).getName());
+        TListVO listItem = lists.get(i);
+        TextView tvListItem = view.findViewById(R.id.tvListItem);
+        tvListItem.setText(listItem.getName());
 
-        listItem.setOnClickListener(v->{
+        tvListItem.setOnClickListener(v -> {
             Intent intent = new Intent(viewGroup.getContext(), TasksActivity.class);
-            intent.putExtra("listID", lists.get(i).getId());
+            intent.putExtra("listID", listItem.getId());
             viewGroup.getContext().startActivity(intent);
         });
 
