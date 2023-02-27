@@ -13,3 +13,19 @@ CSIS 3175 Project Group 4
 - [ ] Extentions
   - [ ] 1
   - [ ] 2
+
+
+
+### Jun
+
+- [x] Todo Lists View 
+- [x] Todo Lists Adapter
+- [ ] New List
+- [ ] Modify List
+- [ ] Save List
+- [ ] Extentions
+  - [ ] 1
+  - [ ] 2
+
+
+
