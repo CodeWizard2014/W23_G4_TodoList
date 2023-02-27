@@ -110,4 +110,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_tasks">TasksActivity</string>
+    <string name="add_list">Add List</string>
+    <string name="show_tasks">Show Tasks</string>
+    <string name="new_list">New List</string>
+    <string name="name">Name:</string>
+    <string name="empty_new_list_name" />
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 </resources>
