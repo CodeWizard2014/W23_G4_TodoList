@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.w23_g4_todolist.service.GlobalVar;
+import com.example.w23_g4_todolist.vo.TListVO;
+
+import java.util.List;
+
 public class AddListActivity extends AppCompatActivity {
 
     @Override
@@ -25,16 +30,22 @@ public class AddListActivity extends AppCompatActivity {
         btnOk.setOnClickListener(view -> {
 
             TextView listName = findViewById(R.id.tvNewListNameValue);
-            if (listName.getText().toString().isEmpty()){
+            if (listName.getText().toString().isEmpty()) {
                 Toast.makeText(this,
                         "Name cannot be empty",
                         Toast.LENGTH_SHORT).show();
             } else {
-                // TODO Add new list info to data obj
-
+                GlobalVar.getDataMgr().getTLists().size();
+                TListVO item = new TListVO(
+                        String.valueOf(GlobalVar.getDataMgr().getTLists().size() + 1),
+                        listName.getText().toString()
+                );
+                GlobalVar.getDataMgr().saveTList(item);
 
                 Intent intent = new Intent(AddListActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
+                recreate();
             }
         });
     }
